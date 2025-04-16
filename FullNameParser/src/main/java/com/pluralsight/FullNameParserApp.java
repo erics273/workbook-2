@@ -1,6 +1,5 @@
 package com.pluralsight;
 
-import java.lang.invoke.SwitchPoint;
 import java.util.Scanner;
 
 public class FullNameParserApp {
@@ -33,6 +32,7 @@ public class FullNameParserApp {
         switch (namePartsArray.length){
             case 2:
                 System.out.println("First Name: " + namePartsArray[0]);
+                System.out.println("Middle Name: (none)");
                 System.out.println("Last Name: " + namePartsArray[1]);
                 break;
             case 3:

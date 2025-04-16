@@ -8,8 +8,6 @@ public class FullNameApplication {
 
     public static void main(String[] args) {
 
-
-
         // Prompt user for name parts
         String firstName = askQuestion("Enter your first name: ");
 
