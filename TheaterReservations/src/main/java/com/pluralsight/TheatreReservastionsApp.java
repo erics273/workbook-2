@@ -11,7 +11,6 @@ public class TheatreReservastionsApp {
 
     //crete the date formatters
     static DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("M/d/yyyy");
-    static DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     public static void main(String[] args) {
 
@@ -52,13 +51,13 @@ public class TheatreReservastionsApp {
         //build output
         String output = numTickets + " ticket" ;
         output  += (numTickets == 1) ? " " : "s ";
-        output += "reserved for " + date.format(outputFormatter);
+        output += "reserved for " + date;
         output += " under " + fullNameFormatted;
 
         // Display confirmation
         System.out.println(output);
 
-        
+
     }
 
 }
