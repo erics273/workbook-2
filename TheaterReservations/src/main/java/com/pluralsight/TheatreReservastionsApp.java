@@ -10,11 +10,9 @@ public class TheatreReservastionsApp {
     static Scanner theScanner = new Scanner(System.in);
 
     //crete the date formatters
-    static DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("M/d/yyyy");
+    static DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("MM/d/yyyy");
 
     public static void main(String[] args) {
-
-
 
         // Prompt for full name
         String fullName = askQuestion("Please enter your name: ");
