@@ -35,13 +35,43 @@ public class CellPhoneApplication {
         myPhone.setOwner(owner);
 
         //use the getters to display this information
-        System.out.println("SN: " + myPhone.getSerialNumber());
-        System.out.println("model: " + myPhone.getModel());
-        System.out.println("Carrier: " + myPhone.getCarrier());
-        System.out.println("Phone number: " + myPhone.getPhoneNumber());
-        System.out.println("Owner: " + myPhone.getOwner());
+//        System.out.println("SN: " + myPhone.getSerialNumber());
+//        System.out.println("model: " + myPhone.getModel());
+//        System.out.println("Carrier: " + myPhone.getCarrier());
+//        System.out.println("Phone number: " + myPhone.getPhoneNumber());
+//        System.out.println("Owner: " + myPhone.getOwner());
 
 
+
+        //create our new phone
+        CellPhone burnerPhone = new CellPhone();
+        burnerPhone.setPhoneNumber("888-123-4567");
+        burnerPhone.setOwner("Bilenie Tilahun");
+
+        System.out.println("-----------info for myPhone--------");
+        //use the display method instead
+        display(myPhone);
+
+        System.out.println("-----------info for burnerPhone--------");
+        //use the display method instead
+        display(burnerPhone);
+
+        //have myPhone call the burner
+        myPhone.dial(burnerPhone.getPhoneNumber());
+
+        //have the burner call myPhone
+        burnerPhone.dial(myPhone.getPhoneNumber());
+
+
+    }
+
+    //this method knows how to display the information for a phone
+    static void display(CellPhone phone){
+        System.out.println("SN: " + phone.getSerialNumber());
+        System.out.println("model: " + phone.getModel());
+        System.out.println("Carrier: " + phone.getCarrier());
+        System.out.println("Phone number: " + phone.getPhoneNumber());
+        System.out.println("Owner: " + phone.getOwner());
     }
 
 }
