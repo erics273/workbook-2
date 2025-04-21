@@ -62,6 +62,22 @@ public class CellPhoneApplication {
         //have the burner call myPhone
         burnerPhone.dial(myPhone.getPhoneNumber());
 
+        //make a new unique phone
+        CellPhone thirdPhone = new CellPhone();
+        thirdPhone.setOwner("Joanna");
+        thirdPhone.setPhoneNumber("555-555-5555");
+        thirdPhone.setCarrier("att");
+        thirdPhone.setSerialNumber(123);
+
+        thirdPhone.dial("828-514-2334");
+
+        //display info about the thirdPhone
+        display(thirdPhone);
+
+        CellPhone fourthPhone = new CellPhone(123, "iphone18", "att", "8285142334", "eric schwartz");
+
+        display(fourthPhone);
+
 
     }
 

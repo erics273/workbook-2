@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import java.util.ArrayList;
+
 public class CellPhone {
 
     //these are the properties/variables that describe a cellphone
@@ -18,6 +20,18 @@ public class CellPhone {
         this.phoneNumber = "";
         this.owner = "";
     }
+
+    //overloading the default constructor to have one with a bigger signature
+    public CellPhone(int sn, String model, String carrier, String phoneNumber, String owner){
+        this.serialNumber = sn;
+        this.model = model;
+        this.carrier = carrier;
+        this.phoneNumber = phoneNumber;
+        this.owner = owner;
+
+    }
+
+
 
     //method to make the phone dial a phone number
     public void dial(String phoneNumber){
