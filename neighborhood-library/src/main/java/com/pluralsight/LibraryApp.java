@@ -29,8 +29,7 @@ public class LibraryApp {
                     //store the selection in userBookChoice
                     int userBookChoice = viewAvailableBooks();
 
-                    //eat the newline
-                    theScanner.nextLine();
+
 
                     if(userBookChoice == -1){
                         continue;
@@ -38,6 +37,8 @@ public class LibraryApp {
 
                     //the user wanted to check out a book
                     if (userBookChoice < theBooks.length) {
+                        //eat the newline
+                        theScanner.nextLine();
                         //Ask them their name
                         System.out.println("What is your name?");
                         String usersName = theScanner.nextLine();
