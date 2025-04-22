@@ -53,7 +53,33 @@ public class LibraryApp {
 
                     break;
                 case 2:
-                    System.out.println("the user wants to see the checked out books");
+                    //call the view available books method to show the books
+                    //store the selection in userBookChoice
+                    int bookToReturn = viewCheckedOutBooks();
+
+                    //this means they selected, go back to the home screen
+                    if(bookToReturn == -1){
+                        continue;
+                    }
+
+                    //the user wanted to check out a book
+                    if (bookToReturn < theBooks.length) {
+                        //eat the newline
+                        theScanner.nextLine();
+
+                        //checkout the book
+                        theBooks[bookToReturn].checkIn();
+
+                        //Ask them their name
+                        System.out.println(theBooks[bookToReturn].getTitle() + "has been returned!");
+
+
+
+                    }else{
+                        System.out.println("invalid book choice");
+                        continue;
+                    }
+
                     break;
                 case 3:
                     System.out.println("the user hates the library and wants to leave");
@@ -110,6 +136,42 @@ public class LibraryApp {
         //if th user says yes then ask them which book
         if(userSelection.equalsIgnoreCase("y")){
             System.out.println("Please enter the id of the book you want to check out:");
+            return theScanner.nextInt();
+        }
+
+        //return -1 if no book selected, its easy to test for
+        return -1;
+
+    }
+
+    static int viewCheckedOutBooks(){
+
+        System.out.println("These are the checked-out books!\n");
+
+        //loop over the books and work with each book
+        for (int i = 0; i < theBooks.length; i++) {
+
+            //set the current book to a variable so we dont have to deal with "i" anymore
+            Book currentBook = theBooks[i];
+
+            if(currentBook.isCheckedOut()){
+                System.out.println(i + ": " + currentBook.getTitle() + " - " + currentBook.getIsbn() + " - checked-out to " + currentBook.getCheckedOutTo());
+            }
+
+        }
+
+        //eat the random line
+        theScanner.nextLine();
+
+        //would you like to check out a book
+        System.out.println("\nWould you like to do?\n");
+        System.out.println("(C) check-in a book?");
+        System.out.println("(X) go back to the main screen\n");
+        String userSelection = theScanner.nextLine();
+
+        //if th user says yes then ask them which book
+        if(userSelection.equalsIgnoreCase("c")){
+            System.out.println("Please enter the id of the book you want to return:");
             return theScanner.nextInt();
         }
 
