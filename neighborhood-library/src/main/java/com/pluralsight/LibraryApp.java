@@ -32,8 +32,12 @@ public class LibraryApp {
                     //eat the newline
                     theScanner.nextLine();
 
-                    //the user wante to check out a book
-                    if (userBookChoice != -1) {
+                    if(userBookChoice == -1){
+                        continue;
+                    }
+
+                    //the user wanted to check out a book
+                    if (userBookChoice < theBooks.length) {
                         //Ask them their name
                         System.out.println("What is your name?");
                         String usersName = theScanner.nextLine();
@@ -41,6 +45,9 @@ public class LibraryApp {
                         //checkout the book
                         theBooks[userBookChoice].checkOut(usersName);
 
+                    }else{
+                        System.out.println("invalid book choice");
+                        continue;
                     }
 
                     break;
@@ -99,11 +106,13 @@ public class LibraryApp {
         System.out.println("\nWould you like to check out a book? (y/n)");
         String userSelection = theScanner.nextLine();
 
+        //if th user says yes then ask them which book
         if(userSelection.equalsIgnoreCase("y")){
             System.out.println("Please enter the id of the book you want to check out:");
             return theScanner.nextInt();
         }
 
+        //return -1 if no book selected, its easy to test for
         return -1;
 
     }
